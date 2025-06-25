@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>My New Hugo Site</title>
-    <link>https://kasises.github.io/post/</link>
+    <link>http://localhost:1313/post/</link>
     <description>Recent content from My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -12,27 +12,45 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jun 2025 01:07:03 +0800</lastBuildDate>
     
     
-    <atom:link href="https://kasises.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
     
 
     <item>
+      <title>Newnewnew</title>
+      <link>http://localhost:1313/post/newnewnew/</link>
+      <pubDate>Thu, 26 Jun 2025 01:07:03 &#43;0800</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>http://localhost:1313/post/newnewnew/</guid>
+      <description>
+        <![CDATA[<h1>Newnewnew</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          
+        
+        <hr><p>本文2025-06-26首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2025-06-26</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
       <title>Hello World</title>
-      <link>https://kasises.github.io/post/hello/</link>
+      <link>http://localhost:1313/post/hello/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/hello/</guid>
+      <guid>http://localhost:1313/post/hello/</guid>
       <description>
         <![CDATA[<h1>Hello World</h1><p>作者：圣子百炼（xxx@example.com）</p>
         
           <p>💘 博麗 霊夢 💘</p>
         
-        <hr><p>本文2023-03-15首发于<a href='https://kasises.github.io/'>My New Hugo Site</a>，最后修改于2023-03-15</p>]]>
+        <hr><p>本文2023-03-15首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2023-03-15</p>]]>
       </description>
       
     </item>
@@ -41,10 +59,10 @@
 
     <item>
       <title></title>
-      <link>https://kasises.github.io/post/%E4%B8%80%E9%99%A8%E8%90%BD%E7%9A%84%E5%A4%A9%E6%89%8D/</link>
+      <link>http://localhost:1313/post/%E4%B8%80%E9%99%A8%E8%90%BD%E7%9A%84%E5%A4%A9%E6%89%8D/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/%E4%B8%80%E9%99%A8%E8%90%BD%E7%9A%84%E5%A4%A9%E6%89%8D/</guid>
+      <guid>http://localhost:1313/post/%E4%B8%80%E9%99%A8%E8%90%BD%E7%9A%84%E5%A4%A9%E6%89%8D/</guid>
       <description>
         <![CDATA[<h1></h1><p>作者：圣子百炼（xxx@example.com）</p>
         
@@ -67,7 +85,7 @@
 课后作业
 </h4><p>![[image.png]]</p>
         
-        <hr><p>本文0001-01-01首发于<a href='https://kasises.github.io/'>My New Hugo Site</a>，最后修改于0001-01-01</p>]]>
+        <hr><p>本文0001-01-01首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于0001-01-01</p>]]>
       </description>
       
     </item>
