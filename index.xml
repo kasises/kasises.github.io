@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://kasises.github.io/algolia.json</link>
+    <description>Recent content from My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (圣子百炼)</managingEditor>
+    <webMaster>xxx@example.com (圣子百炼)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Wed, 15 Mar 2023 11:00:00 -0700</lastBuildDate>
+    
+    
+    <atom:link href="https://kasises.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Hello World</title>
+      <link>https://kasises.github.io/post/hello/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/hello/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <p>💘 博麗 霊夢 💘</p>
+        
+        <hr><p>本文2023-03-15首发于<a href='https://kasises.github.io/'>My New Hugo Site</a>，最后修改于2023-03-15</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title></title>
+      <link>https://kasises.github.io/post/%E4%B8%80%E9%99%A8%E8%90%BD%E7%9A%84%E5%A4%A9%E6%89%8D/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/%E4%B8%80%E9%99%A8%E8%90%BD%E7%9A%84%E5%A4%A9%E6%89%8D/</guid>
+      <description>
+        <![CDATA[<h1></h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <h1 id="陨落的天才">
+<a class="header-anchor" href="#%e9%99%a8%e8%90%bd%e7%9a%84%e5%a4%a9%e6%89%8d"></a>
+陨落的天才
+</h1><ol>
+<li>计算机语言分为==机器语言==，汇编语言，<strong>高级语言</strong>。</li>
+<li>机器语言和汇编语言统称==低级语言==。</li>
+<li>能够被计算机直接执行的语言是==机器语言==。</li>
+<li>C语言是高级语言。不能直接被直接执行，需要进行==编译==。
+<!-- raw HTML omitted --></li>
+<li>C语言编译过程
+编辑→==源程序（.c文本文件）==→编译→==目标文件（.obj二进制文件）==→连接/链接→==可执行文件（.exe二进制文件）==→执行→
+其中源程序，目标程序不能被计算机直接执行，==只有可执行文件能够被直接执行==。
+<!-- raw HTML omitted --></li>
+</ol>
+<h4 id="课后作业">
+<a class="header-anchor" href="#%e8%af%be%e5%90%8e%e4%bd%9c%e4%b8%9a"></a>
+课后作业
+</h4><p>![[image.png]]</p>
+        
+        <hr><p>本文0001-01-01首发于<a href='https://kasises.github.io/'>My New Hugo Site</a>，最后修改于0001-01-01</p>]]>
+      </description>
+      
+    </item>
+    
+  </channel>
+</rss>
