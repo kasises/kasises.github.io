@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  Hello World | 圣子百炼
+   | 圣子百炼
 </title>
 <meta
   name="description"
@@ -37,24 +37,24 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="Hello World | 圣子百炼" />
+  <meta property="og:title" content=" | 圣子百炼" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="http://localhost:1313/post/hello/" />
+  <meta property="og:url" content="http://localhost:1313/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E7%9A%84%E6%96%B9%E6%B3%95/" />
   <meta
     property="og:site_name"
     content="My New Hugo Site"
   />
   <meta
     property="og:image"
-    content="https://d-sketon.top/img/_backwebp/bg1.webp"
+    content="/"
   />
   <meta property="article:author" content="圣子百炼" />
-  <meta property="article:published_time" content="2023-03-15T11:00:00-07:00" />
-  <meta property="article:modified_time" content="2023-03-15T11:00:00-07:00" /><meta name="twitter:card" content="summary" />
-  <meta name="twitter:image" content="https://d-sketon.top/img/_backwebp/bg1.webp" />
+  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
+  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="/" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.css" />
 <link
     rel="preload"
@@ -128,10 +128,9 @@
       </span><a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
   <nav id="sub-nav"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a></nav></div>
-<header id="header"><picture></picture>
-    <img  fetchpriority="high" src="https://d-sketon.top/img/_backwebp/bg1.webp" alt="Hello World"><div id="header-outer">
+<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt=""><div id="header-outer">
     <div id="header-title"><a href="/" id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">My New Hugo Site</h1>
           </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -143,7 +142,26 @@
     ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1技能点一">1.技能点一</a></li>
+    <li><a href="#使用-flume-采集某端口的实时数据流并存入-kafka-指定的topic-中">使用 Flume 采集某端口的实时数据流并存入 Kafka 指定的Topic 中</a>
+      <ul>
+        <li><a href="#flume的配置">flume的配置</a></li>
+        <li><a href="#如何做">#如何做</a></li>
+      </ul>
+    </li>
+    <li><a href="#2技能二">2.技能二</a></li>
+    <li><a href="#使用-maxwell-采集-mysql-的-binlog-日志并存入-kafka-指定的topic-中">使用 Maxwell 采集 MySQL 的 binlog 日志并存入 Kafka 指定的Topic 中</a>
+      <ul>
+        <li><a href="#maxwell的配置">Maxwell的配置</a></li>
+        <li><a href="#编辑mysql配置">编辑Mysql配置</a></li>
+        <li><a href="#验证">验证</a></li>
+        <li><a href="#如何做-1">#如何做</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div></div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -243,30 +261,134 @@
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2023-03-15 11:00:00 -0700 -0700" itemprop="datePublished"
-      >2023-03-15</time
+    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC" itemprop="datePublished"
+      >0001-01-01</time
     >
     <time style="display: none;" id="post-update-time"
-      >2023-03-15</time
+      >0001-01-01</time
     >
   </span>
 </div>
 <div class="article-category"></div>
 </div>
-    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><p>💘 博麗 霊夢 💘</p>
-</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="实时采集的方法">
+<a class="header-anchor" href="#%e5%ae%9e%e6%97%b6%e9%87%87%e9%9b%86%e7%9a%84%e6%96%b9%e6%b3%95"></a>
+实时采集的方法
+</h1><h2 id="1技能点一">
+<a class="header-anchor" href="#1%e6%8a%80%e8%83%bd%e7%82%b9%e4%b8%80"></a>
+1.技能点一
+</h2><h2 id="使用-flume-采集某端口的实时数据流并存入-kafka-指定的topic-中">
+<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-flume-%e9%87%87%e9%9b%86%e6%9f%90%e7%ab%af%e5%8f%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e6%b5%81%e5%b9%b6%e5%ad%98%e5%85%a5-kafka-%e6%8c%87%e5%ae%9a%e7%9a%84topic-%e4%b8%ad"></a>
+使用 Flume 采集某端口的实时数据流并存入 Kafka 指定的Topic 中
+</h2><h3 id="flume的配置">
+<a class="header-anchor" href="#flume%e7%9a%84%e9%85%8d%e7%bd%ae"></a>
+flume的配置
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a1.sources=r1
+</span></span><span class="line"><span class="cl">a1.sinks=k1
+</span></span><span class="line"><span class="cl">a1.channels=c1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sources.r1.type=netcat
+</span></span><span class="line"><span class="cl">a1.sources.r1.bind=master
+</span></span><span class="line"><span class="cl">a1.sources.r1.port=9999
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sinks.k1.type=org.apache.flume.sink.kafka.KafkaSink
+</span></span><span class="line"><span class="cl">a1.sinks.k1.brokerList=master:9092,slave1:9092,slave2:9092
+</span></span><span class="line"><span class="cl">a1.sinks.k1.topic=lol
+</span></span><span class="line"><span class="cl">a1.sinks.k1.serializer.class=kafka.serializer.StringEncoding
+</span></span><span class="line"><span class="cl">a1.sinks.kafka.producer.max.request.size=10240000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.channels.c1.type=memory
+</span></span><span class="line"><span class="cl">a1.channels.c1.capacity=100000
+</span></span><span class="line"><span class="cl">a1.channels.c1.transactionCapacity=1000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sources.r1.channels=c1
+</span></span><span class="line"><span class="cl">a1.sinks.k1.channel=c1
+</span></span></code></pre></div><h3 id="如何做">
+<a class="header-anchor" href="#%e5%a6%82%e4%bd%95%e5%81%9a"></a>
+#如何做
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.启动自己配置的flume文件
+</span></span><span class="line"><span class="cl">2.启动kafka
+</span></span><span class="line"><span class="cl">3.配置kafka主题
+</span></span><span class="line"><span class="cl">4.消费kafka
+</span></span></code></pre></div><h2 id="2技能二">
+<a class="header-anchor" href="#2%e6%8a%80%e8%83%bd%e4%ba%8c"></a>
+2.技能二
+</h2><h2 id="使用-maxwell-采集-mysql-的-binlog-日志并存入-kafka-指定的topic-中">
+<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-maxwell-%e9%87%87%e9%9b%86-mysql-%e7%9a%84-binlog-%e6%97%a5%e5%bf%97%e5%b9%b6%e5%ad%98%e5%85%a5-kafka-%e6%8c%87%e5%ae%9a%e7%9a%84topic-%e4%b8%ad"></a>
+使用 Maxwell 采集 MySQL 的 binlog 日志并存入 Kafka 指定的Topic 中
+</h2><h3 id="maxwell的配置">
+<a class="header-anchor" href="#maxwell%e7%9a%84%e9%85%8d%e7%bd%ae"></a>
+Maxwell的配置
+</h3><p>在Maxwell中配置到config.properties文件（可能需要自己创建）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl"># MySQL 配置
+</span></span><span class="line"><span class="cl">host=&lt;MySQL 主机地址&gt;
+</span></span><span class="line"><span class="cl">user=&lt;MySQL 用户名&gt;
+</span></span><span class="line"><span class="cl">password=&lt;MySQL 密码&gt;
+</span></span><span class="line"><span class="cl">port=3306
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"># Kafka 配置
+</span></span><span class="line"><span class="cl">producer=kafka
+</span></span><span class="line"><span class="cl">kafka.bootstrap.servers=&lt;Kafka 集群地址&gt;
+</span></span><span class="line"><span class="cl">kafka_topic=&lt;Kafka Topic 名称&gt;
+</span></span></code></pre></div><h3 id="编辑mysql配置">
+<a class="header-anchor" href="#%e7%bc%96%e8%be%91mysql%e9%85%8d%e7%bd%ae"></a>
+编辑Mysql配置
+</h3><p>文件地址 vi /etc/my.cnf  或/usr/local/mysql/my.cnf</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">#确保 MySQL 已启用 binlog
+</span></span><span class="line"><span class="cl">[mysqld]
+</span></span><span class="line"><span class="cl"># 启用 binlog
+</span></span><span class="line"><span class="cl">log-bin=mysql-bin
+</span></span><span class="line"><span class="cl"># 设置 binlog 格式为 ROW（推荐）
+</span></span><span class="line"><span class="cl">binlog_format=row
+</span></span><span class="line"><span class="cl"># 设置 server-id（每个 MySQL 实例必须唯一）
+</span></span><span class="line"><span class="cl">server-id=1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">log-bin 表示启用 binlog。
+</span></span><span class="line"><span class="cl">binlog_format=row 表示使用行级别的 binlog（Maxwell 必须使用 row 格式）。
+</span></span><span class="line"><span class="cl">server-id 必须设置且唯一，否则无法启用 binlog。
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">#为 Maxwell 创建一个具有读取 binlog 权限的用户
+</span></span><span class="line"><span class="cl">CREATE USER &#39;maxwell&#39;@&#39;%&#39; IDENTIFIED BY &#39;password&#39;;
+</span></span><span class="line"><span class="cl">GRANT SELECT, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO &#39;maxwell&#39;@&#39;%&#39;;
+</span></span><span class="line"><span class="cl">FLUSH PRIVILEGES;
+</span></span></code></pre></div><h3 id="验证">
+<a class="header-anchor" href="#%e9%aa%8c%e8%af%81"></a>
+验证
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">验证 Maxwell 用户权限是否正常：
+</span></span><span class="line"><span class="cl">使用 maxwell 用户连接 MySQL：
+</span></span><span class="line"><span class="cl">mysql -u maxwell -p -h &lt;MySQL 主机&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">验证是否可以读取 binlog：
+</span></span><span class="line"><span class="cl">SHOW MASTER STATUS;
+</span></span><span class="line"><span class="cl">如果能正常返回 binlog 文件名和位置，则说明配置成功。
+</span></span></code></pre></div><h3 id="如何做-1">
+<a class="header-anchor" href="#%e5%a6%82%e4%bd%95%e5%81%9a-1"></a>
+#如何做
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">先配置好上面两个
+</span></span><span class="line"><span class="cl">注意配置好mysql需要重新启动
+</span></span><span class="line"><span class="cl">//可以检验一下是mysql是否配置好
+</span></span><span class="line"><span class="cl">1.启动kafka
+</span></span><span class="line"><span class="cl">2.创建kafka主题
+</span></span><span class="line"><span class="cl">3.启动Maxwell
+</span></span><span class="line"><span class="cl">4.启动kafka的消费者
+</span></span></code></pre></div></div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"></ul>
 </footer>
   </div><nav
     id="article-nav"
     data-aos="fade-up"
-  ><div class="article-nav-link-wrap article-nav-link-left"><img
-              data-src="https://d-sketon.top/img/_backwebp/bg1.webp"
+  ><div class="article-nav-link-wrap article-nav-link-right"><img
+              data-src="https://example.com/2.jpg"
               data-sizes="auto"
               alt=""
               class="lazyload"
             /><a href="/post/%E4%B8%80%E9%99%A8%E8%90%BD%E7%9A%84%E5%A4%A9%E6%89%8D/"></a>
-        <div class="article-nav-caption">前一篇</div>
+        <div class="article-nav-caption">后一篇</div>
         <h3 class="article-nav-title">(no title)</h3>
       </div></nav></article></section>
         </div><footer id="footer">
@@ -316,7 +438,26 @@
   <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
   <h3 class="toc-title">文章目录</h3>
   <div class="sidebar-toc-wrapper toc-div-class">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1技能点一">1.技能点一</a></li>
+    <li><a href="#使用-flume-采集某端口的实时数据流并存入-kafka-指定的topic-中">使用 Flume 采集某端口的实时数据流并存入 Kafka 指定的Topic 中</a>
+      <ul>
+        <li><a href="#flume的配置">flume的配置</a></li>
+        <li><a href="#如何做">#如何做</a></li>
+      </ul>
+    </li>
+    <li><a href="#2技能二">2.技能二</a></li>
+    <li><a href="#使用-maxwell-采集-mysql-的-binlog-日志并存入-kafka-指定的topic-中">使用 Maxwell 采集 MySQL 的 binlog 日志并存入 Kafka 指定的Topic 中</a>
+      <ul>
+        <li><a href="#maxwell的配置">Maxwell的配置</a></li>
+        <li><a href="#编辑mysql配置">编辑Mysql配置</a></li>
+        <li><a href="#验证">验证</a></li>
+        <li><a href="#如何做-1">#如何做</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div></div>
         <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -466,10 +607,10 @@
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "圣子百炼",
-          title: "Hello World",
-          url: "http:\/\/localhost:1313\/post\/hello\/",
-          description: "💘 博麗 霊夢 💘\n",
-          cover: "https:\/\/d-sketon.top\/img\/_backwebp\/bg1.webp",
+          title: "",
+          url: "http:\/\/localhost:1313\/post\/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E7%9A%84%E6%96%B9%E6%B3%95\/",
+          description: "\r实时采集的方法\r1.技能点一\r使用 Flume 采集某端口的实时数据流并存入 Kafka 指定的Topic 中\rflume的配置\ra1.sources=r1 a1.sinks=k1 a1.channels=c1 a1.sources.r1.type=netcat a1.sources.r1.bind=master a1.sources.r1.port=9999 a1.sinks.k1.type=org.apache.flume.sink.kafka.KafkaSink a1.sinks.k1.brokerList=master:9092,slave1:9092,slave2:9092 …",
+          cover: "http:\/\/localhost:1313\/images\/banner.webp",
         };
       </script><script src="/js/insert_highlight.js" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
           if (_$$('.article-entry a.article-gallery-item').length > 0) {
