@@ -41,6 +41,72 @@
 
     <item>
       <title></title>
+      <link>http://localhost:1313/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E7%9A%84%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>http://localhost:1313/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E7%9A%84%E6%96%B9%E6%B3%95/</guid>
+      <description>
+        <![CDATA[<h1></h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <h1 id="实时采集的方法">
+<a class="header-anchor" href="#%e5%ae%9e%e6%97%b6%e9%87%87%e9%9b%86%e7%9a%84%e6%96%b9%e6%b3%95"></a>
+实时采集的方法
+</h1><h2 id="1技能点一">
+<a class="header-anchor" href="#1%e6%8a%80%e8%83%bd%e7%82%b9%e4%b8%80"></a>
+1.技能点一
+</h2><h2 id="使用-flume-采集某端口的实时数据流并存入-kafka-指定的topic-中">
+<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-flume-%e9%87%87%e9%9b%86%e6%9f%90%e7%ab%af%e5%8f%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e6%b5%81%e5%b9%b6%e5%ad%98%e5%85%a5-kafka-%e6%8c%87%e5%ae%9a%e7%9a%84topic-%e4%b8%ad"></a>
+使用 Flume 采集某端口的实时数据流并存入 Kafka 指定的Topic 中
+</h2><h3 id="flume的配置">
+<a class="header-anchor" href="#flume%e7%9a%84%e9%85%8d%e7%bd%ae"></a>
+flume的配置
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a1.sources=r1
+</span></span><span class="line"><span class="cl">a1.sinks=k1
+</span></span><span class="line"><span class="cl">a1.channels=c1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sources.r1.type=netcat
+</span></span><span class="line"><span class="cl">a1.sources.r1.bind=master
+</span></span><span class="line"><span class="cl">a1.sources.r1.port=9999
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sinks.k1.type=org.apache.flume.sink.kafka.KafkaSink
+</span></span><span class="line"><span class="cl">a1.sinks.k1.brokerList=master:9092,slave1:9092,slave2:9092
+</span></span><span class="line"><span class="cl">a1.sinks.k1.topic=lol
+</span></span><span class="line"><span class="cl">a1.sinks.k1.serializer.class=kafka.serializer.StringEncoding
+</span></span><span class="line"><span class="cl">a1.sinks.kafka.producer.max.request.size=10240000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.channels.c1.type=memory
+</span></span><span class="line"><span class="cl">a1.channels.c1.capacity=100000
+</span></span><span class="line"><span class="cl">a1.channels.c1.transactionCapacity=1000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sources.r1.channels=c1
+</span></span><span class="line"><span class="cl">a1.sinks.k1.channel=c1
+</span></span></code></pre></div><h3 id="如何做">
+<a class="header-anchor" href="#%e5%a6%82%e4%bd%95%e5%81%9a"></a>
+#如何做
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.启动自己配置的flume文件
+</span></span><span class="line"><span class="cl">2.启动kafka
+</span></span><span class="line"><span class="cl">3.配置kafka主题
+</span></span><span class="line"><span class="cl">4.消费kafka
+</span></span></code></pre></div><h2 id="2技能二">
+<a class="header-anchor" href="#2%e6%8a%80%e8%83%bd%e4%ba%8c"></a>
+2.技能二
+</h2><h2 id="使用-maxwell-采集-mysql-的-binlog-日志并存入-kafka-指定的topic-中">
+<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-maxwell-%e9%87%87%e9%9b%86-mysql-%e7%9a%84-binlog-%e6%97%a5%e5%bf%97%e5%b9%b6%e5%ad%98%e5%85%a5-kafka-%e6%8c%87%e5%ae%9a%e7%9a%84topic-%e4%b8%ad"></a>
+使用 Maxwell 采集 MySQL 的 binlog 日志并存入 Kafka 指定的Topic 中
+</h2><h3 id="maxwell的配置">
+<a class="header-anchor" href="#maxwell%e7%9a%84%e9%85%8d%e7%bd%ae"></a>
+Maxwell的配置
+</h3><p>在Maxwell中配置到config.properties文件（可能需要自己创建）</p>
+        
+        <hr><p>本文0001-01-01首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于0001-01-01</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title></title>
       <link>http://localhost:1313/post/%E4%B8%80%E9%99%A8%E8%90%BD%E7%9A%84%E5%A4%A9%E6%89%8D/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
