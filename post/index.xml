@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>风林火山</title>
     <link>http://localhost:1313/post/</link>
-    <description>Recent content from My New Hugo Site</description>
+    <description>Recent content from 风林火山</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     
@@ -32,7 +32,7 @@
         
           <p>💘 博麗 霊夢 💘</p>
         
-        <hr><p>本文2023-03-15首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于2023-03-15</p>]]>
+        <hr><p>本文2023-03-15首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于2023-03-15</p>]]>
       </description>
       
     </item>
@@ -98,7 +98,7 @@ flume的配置
 Maxwell的配置
 </h3><p>在Maxwell中配置到config.properties文件（可能需要自己创建）</p>
         
-        <hr><p>本文0001-01-01首发于<a href='http://localhost:1313/'>My New Hugo Site</a>，最后修改于0001-01-01</p>]]>
+        <hr><p>本文0001-01-01首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于0001-01-01</p>]]>
       </description>
       
     </item>
