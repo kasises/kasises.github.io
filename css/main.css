@@ -305,6 +305,14 @@ body [data-aos="zoom-in"] {
   content: "\e630";
 }
 
+.icon-github:before {
+  content: "\e619";
+}
+
+.icon-bilibili:before {
+  content: "\e603";
+}
+
 .sidebar-btn-wrapper .sidebar-toc-btn:before {
   font-family: "iconfont";
   content: "\e633";
@@ -3056,6 +3064,19 @@ mjx-container::-webkit-scrollbar {
   transform: scale(1.2);
 }
 
+.icon-github {
+  color: #191717;
+  transition: 1;
+}
+
+[data-theme="dark"] .icon-github {
+  color: #bc88ff;
+}
+
+.icon-bilibili {
+  color: #00a1d6;
+}
+
 .sidebar-menu {
   margin: 20px 0;
   width: 100%;
@@ -3713,6 +3734,18 @@ mjx-container::-webkit-scrollbar {
   height: 5px;
   border-radius: 50%;
   opacity: 1;
+}
+
+#live2d-toggle {
+  z-index: 1;
+}
+
+#live2d-plugin {
+  z-index: 98 !important;
+}
+
+#waifu-toggle {
+  z-index: 1;
 }
 
 [data-theme="dark"] ::-webkit-scrollbar, [data-theme="dark"] ::-webkit-scrollbar-track {
