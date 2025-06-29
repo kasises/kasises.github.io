@@ -8,11 +8,11 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  关于 | 圣子百炼
+  Flume &#43; Kafka &#43; Flink 实时计算项目说明文档 | 圣子百炼
 </title>
 <meta
   name="description"
-  content="关于"
+  content="少女祈祷中..."
 /><script>
   window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://kasises.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_0khxww3tj3q9\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
   
@@ -37,24 +37,24 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="关于 | 圣子百炼" />
+  <meta property="og:title" content="Flume &#43; Kafka &#43; Flink 实时计算项目说明文档 | 圣子百炼" />
   <meta
     property="og:description"
-    content="关于"
+    content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://kasises.github.io/about/" />
+  <meta property="og:url" content="https://kasises.github.io/post/flume_kafka_flink_pipeline/" />
   <meta
     property="og:site_name"
     content="风林火山"
   />
   <meta
     property="og:image"
-    content="/"
+    content="https://img2.baidu.com/it/u=2323422912,1886925700&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500"
   />
   <meta property="article:author" content="圣子百炼" />
-  <meta property="article:published_time" content="2022-06-09T20:12:52&#43;08:00" />
-  <meta property="article:modified_time" content="2022-06-09T20:12:52&#43;08:00" /><meta name="twitter:card" content="summary" />
-  <meta name="twitter:image" content="/" />
+  <meta property="article:published_time" content="2024-06-20T00:00:00-07:00" />
+  <meta property="article:modified_time" content="2024-06-20T00:00:00-07:00" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://img2.baidu.com/it/u=2323422912,1886925700&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.c7c6f3d05a45f313ba91f5299895893f7e28a358f57d464939b5495907e503ef.css" />
 <link
     rel="preload"
@@ -128,18 +128,48 @@
       </span><a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
   <nav id="sub-nav"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a></nav></div>
-<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="关于"><div id="header-outer">
+<header id="header"><picture></picture>
+    <img  fetchpriority="high" src="https://img2.baidu.com/it/u=2323422912,1886925700&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500" alt="Flume &#43; Kafka &#43; Flink 实时计算项目说明文档"><div id="header-outer">
     <div id="header-title"><a href="/" id="logo">
-            <h1 data-aos="slide-up">关于</h1>
+            <h1 data-aos="slide-up">Flume &#43; Kafka &#43; Flink 实时计算项目说明文档</h1>
           </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
           
-          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper ">
+          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper wrap-sticky">
     <div
       class="sidebar-wrap"
       data-aos="fade-up"
-    ><div class="sidebar-author">
+    ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一功能目标">一、功能目标</a></li>
+    <li><a href="#二实现步骤">二、实现步骤</a>
+      <ul>
+        <li><a href="#1-配置-flume-监听-20000-端口将数据打印到控制台测试通过">1. 配置 Flume 监听 20000 端口，将数据打印到控制台（测试通过）</a></li>
+        <li><a href="#2-kafka-相关操作">2. Kafka 相关操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#三flink-代码说明">三、Flink 代码说明</a>
+      <ul>
+        <li><a href="#1-自定义-sink-将结果写入-mysql">1. 自定义 Sink 将结果写入 MySQL</a></li>
+        <li><a href="#2-使用自定义-sink-写入结果">2. 使用自定义 Sink 写入结果</a></li>
+      </ul>
+    </li>
+    <li><a href="#四flink-启动方式">四、Flink 启动方式</a>
+      <ul>
+        <li><a href="#1-flink-集群方式">1. Flink 集群方式</a></li>
+        <li><a href="#2-flink-on-yarn-方式">2. Flink-on-YARN 方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#五注意事项">五、注意事项</a></li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
     data-src="/avatar/avatar.webp"
     data-sizes="auto"
@@ -214,30 +244,13 @@
       <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
       <div class="sidebar-menu-link">友链</div>
     </div></div>
-</div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
   </div>
 
-  <div class="sidebar-widget"><div class="widget-wrapper">
-    <div
-      class="widget-wrap"
-      data-aos="fade-up"
-    >
-      <h3 class="widget-title">最新文章</h3>
-      <div class="widget">
-        <ul><li>
-              <a href="/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/">实时采集的方法</a>
-            </li><li>
-              <a href="/post/flink_kafka_job_guide/">Flume &#43; Flink Kafka 实时处理任务配置与开发</a>
-            </li><li>
-              <a href="/post/vue_flask_guide/"> Vue 前端 &#43; Flask 后端开发环境搭建</a>
-            </li><li>
-              <a href="/post/1.-mysql-%E9%85%8D%E7%BD%AE/">Maxwell 和 MySQL 配置示例</a>
-            </li><li>
-              <a href="/post/flume_kafka_flink_pipeline/">Flume &#43; Kafka &#43; Flink 实时计算项目说明文档</a>
-            </li></ul>
-      </div>
-    </div>
-  </div></div></aside>
+  <div class="sidebar-widget"></div></aside>
 <section id="main"><article
   class="h-entry article"
   itemprop="blogPost"
@@ -253,20 +266,175 @@
     class="article-date-link"
     data-aos="zoom-in"
   >
-    <time datetime="2022-06-09 20:12:52 &#43;0800 CST" itemprop="datePublished"
-      >2022-06-09</time
+    <time datetime="2024-06-20 00:00:00 -0700 -0700" itemprop="datePublished"
+      >2024-06-20</time
     >
     <time style="display: none;" id="post-update-time"
-      >2022-06-09</time
+      >2024-06-20</time
     >
   </span>
 </div>
 <div class="article-category"></div>
 </div>
-    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"></div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="一功能目标">
+<a class="header-anchor" href="#%e4%b8%80%e5%8a%9f%e8%83%bd%e7%9b%ae%e6%a0%87"></a>
+一、功能目标
+</h2><ol>
+<li>使用 Flume 采集 20000 端口的数据，采集后放入 Kafka 的 <code>mytest</code> 主题中。</li>
+<li>使用 Flink 消费 Kafka 中 <code>mytest</code> 主题的数据，进行计算：
+<ul>
+<li>计算每分钟内各个用户的<strong>有效订单总额</strong>并存入 <strong>MySQL</strong></li>
+<li>计算每分钟内的<strong>有效订单总数</strong>并存入 <strong>Redis</strong> 的 <code>total_orders</code> 键中</li>
+</ul>
+</li>
+<li>将计算结果存入 MySQL。</li>
+</ol>
+<hr>
+<h2 id="二实现步骤">
+<a class="header-anchor" href="#%e4%ba%8c%e5%ae%9e%e7%8e%b0%e6%ad%a5%e9%aa%a4"></a>
+二、实现步骤
+</h2><h3 id="1-配置-flume-监听-20000-端口将数据打印到控制台测试通过">
+<a class="header-anchor" href="#1-%e9%85%8d%e7%bd%ae-flume-%e7%9b%91%e5%90%ac-20000-%e7%ab%af%e5%8f%a3%e5%b0%86%e6%95%b0%e6%8d%ae%e6%89%93%e5%8d%b0%e5%88%b0%e6%8e%a7%e5%88%b6%e5%8f%b0%e6%b5%8b%e8%af%95%e9%80%9a%e8%bf%87"></a>
+1. 配置 Flume 监听 20000 端口，将数据打印到控制台（测试通过）
+</h3><p><code>mytest.conf</code> 配置文件如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">a1.sources</span> <span class="o">=</span> <span class="s">r1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks</span> <span class="o">=</span> <span class="s">k1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.type</span> <span class="o">=</span> <span class="s">netcat</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.bind</span> <span class="o">=</span> <span class="s">localhost</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.port</span> <span class="o">=</span> <span class="s">20000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.channels.c1.type</span> <span class="o">=</span> <span class="s">memory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.type</span> <span class="o">=</span> <span class="s">logger</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 若要发送至 Kafka，使用以下配置：</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># a1.sinks.k1.type=org.apache.flume.sink.kafka.KafkaSink</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># a1.sinks.k1.kafka.topic=mytest</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># a1.sinks.k1.kafka.bootstrap.servers=192.168.44.201:9092,192.168.44.202:9092,192.168.44.203:9092</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.channels</span> <span class="o">=</span> <span class="s">c1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.channel</span> <span class="o">=</span> <span class="s">c1</span>
+</span></span></code></pre></div><p><strong>启动 Flume 命令</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">flume-ng agent -c conf -f mytest.conf --name a1 -Dflume.root.logger<span class="o">=</span>INFO,console
+</span></span></code></pre></div><hr>
+<h3 id="2-kafka-相关操作">
+<a class="header-anchor" href="#2-kafka-%e7%9b%b8%e5%85%b3%e6%93%8d%e4%bd%9c"></a>
+2. Kafka 相关操作
+</h3><h4 id="21-启动-zookeeper-和-kafka">
+<a class="header-anchor" href="#21-%e5%90%af%e5%8a%a8-zookeeper-%e5%92%8c-kafka"></a>
+2.1 启动 ZooKeeper 和 Kafka
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 启动 ZooKeeper</span>
+</span></span><span class="line"><span class="cl">zkServer.sh start
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动 Kafka</span>
+</span></span><span class="line"><span class="cl">kafka-server-start.sh -daemon /usr/local/src/kafka/config/server.properties
+</span></span></code></pre></div><h4 id="22-kafka-主题操作">
+<a class="header-anchor" href="#22-kafka-%e4%b8%bb%e9%a2%98%e6%93%8d%e4%bd%9c"></a>
+2.2 Kafka 主题操作
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 查看所有主题</span>
+</span></span><span class="line"><span class="cl">kafka-topics.sh --zookeeper master:2181 --list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建主题</span>
+</span></span><span class="line"><span class="cl">kafka-topics.sh --create --zookeeper master:2181 --replication-factor <span class="m">1</span> --partitions <span class="m">1</span> --topic mytest
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 启动消费者监听 mytest 主题</span>
+</span></span><span class="line"><span class="cl">kafka-console-consumer.sh --bootstrap-server master:9092 --topic mytest --from-beginning
+</span></span></code></pre></div><hr>
+<h2 id="三flink-代码说明">
+<a class="header-anchor" href="#%e4%b8%89flink-%e4%bb%a3%e7%a0%81%e8%af%b4%e6%98%8e"></a>
+三、Flink 代码说明
+</h2><h3 id="1-自定义-sink-将结果写入-mysql">
+<a class="header-anchor" href="#1-%e8%87%aa%e5%ae%9a%e4%b9%89-sink-%e5%b0%86%e7%bb%93%e6%9e%9c%e5%86%99%e5%85%a5-mysql"></a>
+1. 自定义 Sink 将结果写入 MySQL
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MySqlSink</span> <span class="k">extends</span> <span class="nc">RichSinkFunction</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Double</span><span class="o">)]</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">conn</span><span class="k">:</span> <span class="kt">Connection</span> <span class="o">=</span> <span class="k">_</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">pstmt</span><span class="k">:</span> <span class="kt">PreparedStatement</span> <span class="o">=</span> <span class="k">_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">open</span><span class="o">(</span><span class="n">parameters</span><span class="k">:</span> <span class="kt">Configuration</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span> <span class="k">=</span> <span class="nc">DriverManager</span><span class="o">.</span><span class="n">getConnection</span><span class="o">(</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;jdbc:mysql://192.168.6.86:3306/bike_db?characterEncoding=utf-8&#34;</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl">      <span class="s">&#34;root&#34;</span><span class="o">,</span> <span class="s">&#34;123456&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span> <span class="k">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">prepareStatement</span><span class="o">(</span><span class="s">&#34;INSERT INTO your_table (user_id, total_amount) VALUES (?, ?)&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">invoke</span><span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="o">(</span><span class="kt">String</span><span class="o">,</span> <span class="kt">Double</span><span class="o">),</span> <span class="n">context</span><span class="k">:</span> <span class="kt">SinkFunction.Context</span><span class="o">[</span><span class="k">_</span><span class="o">])</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setDouble</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">executeUpdate</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">close</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h3 id="2-使用自定义-sink-写入结果">
+<a class="header-anchor" href="#2-%e4%bd%bf%e7%94%a8%e8%87%aa%e5%ae%9a%e4%b9%89-sink-%e5%86%99%e5%85%a5%e7%bb%93%e6%9e%9c"></a>
+2. 使用自定义 Sink 写入结果
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="n">resultStream</span><span class="o">.</span><span class="n">addSink</span><span class="o">(</span><span class="k">new</span> <span class="nc">MySqlSink</span><span class="o">())</span>
+</span></span></code></pre></div><hr>
+<h2 id="四flink-启动方式">
+<a class="header-anchor" href="#%e5%9b%9bflink-%e5%90%af%e5%8a%a8%e6%96%b9%e5%bc%8f"></a>
+四、Flink 启动方式
+</h2><h3 id="1-flink-集群方式">
+<a class="header-anchor" href="#1-flink-%e9%9b%86%e7%be%a4%e6%96%b9%e5%bc%8f"></a>
+1. Flink 集群方式
+</h3><blockquote>
+<p>必须先启动 Flink 集群，然后运行 jar 包</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">flink run -c com.xxx.demo.XXXXDemo /opt/jars/xxxx.jar
+</span></span></code></pre></div><ul>
+<li>查看运行状态：http://your-flink-host:8081</li>
+<li>停止任务：进入任务详情页面点击 <strong>Cancel Job</strong></li>
+</ul>
+<h3 id="2-flink-on-yarn-方式">
+<a class="header-anchor" href="#2-flink-on-yarn-%e6%96%b9%e5%bc%8f"></a>
+2. Flink-on-YARN 方式
+</h3><blockquote>
+<p>无需单独启动 Flink，只需确保 Hadoop/YARN 正常</p></blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">flink run -m yarn-cluster -c com.xxx.demo.XXXXDemo /opt/jars/xxxx.jar
+</span></span></code></pre></div><ul>
+<li>如果提示 <code>hadoop-classpath</code> 错误，运行以下命令：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HADOOP_CLASSPATH</span><span class="o">=</span><span class="sb">`</span>hadoop classpath<span class="sb">`</span>
+</span></span></code></pre></div><ul>
+<li>停止任务：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yarn application -kill application_XXXXX
+</span></span></code></pre></div><hr>
+<h2 id="五注意事项">
+<a class="header-anchor" href="#%e4%ba%94%e6%b3%a8%e6%84%8f%e4%ba%8b%e9%a1%b9"></a>
+五、注意事项
+</h2><ul>
+<li>Flink 集群所有节点需要将提供的 jar 包全部放入 <code>flink/lib</code> 目录中；</li>
+<li>Flume 将数据写入 Kafka 时，请正确配置 <code>KafkaSink</code>；</li>
+<li>Redis、MySQL 等服务需提前启动并确保网络联通；</li>
+<li>使用 YARN 模式时需提前启动 Hadoop/YARN。</li>
+</ul>
+</div>
     <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"></ul>
 </footer>
-  </div></article></section>
+  </div><nav
+    id="article-nav"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap article-nav-link-left"><img
+              data-src="https://img1.baidu.com/it/u=4172880539,1245123204&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPEG?w=889&amp;h=500"
+              data-sizes="auto"
+              alt="Hello World"
+              class="lazyload"
+            /><a href="/post/hello/"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">Hello World</h3>
+      </div><div class="article-nav-link-wrap article-nav-link-right"><img
+            data-src="https://img0.baidu.com/it/u=1376455434,4293181991&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500"
+            data-sizes="auto"
+            alt="Maxwell 和 MySQL 配置示例"
+            class="lazyload"
+          /><a href="/post/1.-mysql-%E9%85%8D%E7%BD%AE/"></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title">Maxwell 和 MySQL 配置示例</h3>
+      </div></nav></article></section>
         </div><footer id="footer">
   <div style="width: 100%; overflow: hidden">
     <div class="footer-line"></div>
@@ -311,7 +479,36 @@
             <div class="arrow-up"></div>
           </div><div id="mask" class="hide"></div>
       </div><nav id="mobile-nav">
-  <div class="sidebar-wrap"><div class="sidebar-author">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一功能目标">一、功能目标</a></li>
+    <li><a href="#二实现步骤">二、实现步骤</a>
+      <ul>
+        <li><a href="#1-配置-flume-监听-20000-端口将数据打印到控制台测试通过">1. 配置 Flume 监听 20000 端口，将数据打印到控制台（测试通过）</a></li>
+        <li><a href="#2-kafka-相关操作">2. Kafka 相关操作</a></li>
+      </ul>
+    </li>
+    <li><a href="#三flink-代码说明">三、Flink 代码说明</a>
+      <ul>
+        <li><a href="#1-自定义-sink-将结果写入-mysql">1. 自定义 Sink 将结果写入 MySQL</a></li>
+        <li><a href="#2-使用自定义-sink-写入结果">2. 使用自定义 Sink 写入结果</a></li>
+      </ul>
+    </li>
+    <li><a href="#四flink-启动方式">四、Flink 启动方式</a>
+      <ul>
+        <li><a href="#1-flink-集群方式">1. Flink 集群方式</a></li>
+        <li><a href="#2-flink-on-yarn-方式">2. Flink-on-YARN 方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#五注意事项">五、注意事项</a></li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
     data-src="/avatar/avatar.webp"
     data-sizes="auto"
@@ -386,7 +583,10 @@
       <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
       <div class="sidebar-menu-link">友链</div>
     </div></div>
-</div></nav>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
 </div><div class="site-search">
         <div class="reimu-popup popup">
           <div class="reimu-search">
@@ -455,10 +655,10 @@
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "圣子百炼",
-          title: "关于",
-          url: "https:\/\/kasises.github.io\/about\/",
-          description: "关于",
-          cover: "https:\/\/kasises.github.io\/images\/banner.webp",
+          title: "Flume \u002b Kafka \u002b Flink 实时计算项目说明文档",
+          url: "https:\/\/kasises.github.io\/post\/flume_kafka_flink_pipeline\/",
+          description: "\r一、功能目标\r使用 Flume 采集 20000 端口的数据，采集后放入 Kafka 的 mytest 主题中。 使用 Flink 消费 Kafka 中 mytest 主题的数据，进行计算： 计算每分钟内各个用户的有效订单总额并存入 MySQL 计算每分钟内的有效订单总数并存入 Redis 的 total_orders 键中 将计算结果存入 MySQL。 二、实现步骤\r1. 配置 Flume 监听 20000 端口，将数据打印到控制台（测试通过）\rmytest.conf 配置文件如下：\n",
+          cover: "https:\/\/img2.baidu.com\/it\/u=2323422912,1886925700\u0026fm=253\u0026fmt=auto\u0026app=120\u0026f=JPEG?w=800\u0026h=500",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
           if (_$$('.article-entry a.article-gallery-item').length > 0) {

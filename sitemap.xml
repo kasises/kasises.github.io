@@ -2,29 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
+    <loc>https://kasises.github.io/</loc>
     <lastmod>2025-06-27T00:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/</loc>
+    <loc>https://kasises.github.io/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/</loc>
     <lastmod>2025-06-27T00:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/hello/</loc>
+    <loc>https://kasises.github.io/post/flink_kafka_job_guide/</loc>
+    <lastmod>2024-07-11T00:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://kasises.github.io/post/vue_flask_guide/</loc>
+    <lastmod>2024-07-10T00:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://kasises.github.io/post/1.-mysql-%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2024-06-27T00:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://kasises.github.io/post/flume_kafka_flink_pipeline/</loc>
+    <lastmod>2024-06-20T00:00:00-07:00</lastmod>
+  </url><url>
+    <loc>https://kasises.github.io/post/hello/</loc>
     <lastmod>2023-03-15T11:00:00-07:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>https://kasises.github.io/archives/</loc>
     <lastmod>2022-07-26T21:46:25+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/post/</loc>
-    <lastmod>2022-07-26T21:46:25+08:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/about/</loc>
+    <loc>https://kasises.github.io/about/</loc>
     <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/friend/</loc>
+    <loc>https://kasises.github.io/friend/</loc>
     <lastmod>2022-06-09T20:12:52+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>https://kasises.github.io/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>https://kasises.github.io/tags/</loc>
   </url>
 </urlset>

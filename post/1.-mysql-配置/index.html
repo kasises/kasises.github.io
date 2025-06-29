@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  标签 | 圣子百炼
+  Maxwell 和 MySQL 配置示例 | 圣子百炼
 </title>
 <meta
   name="description"
@@ -37,24 +37,24 @@
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" />
 <meta property="og:type" content="website" />
-  <meta property="og:title" content="标签 | 圣子百炼" />
+  <meta property="og:title" content="Maxwell 和 MySQL 配置示例 | 圣子百炼" />
   <meta
     property="og:description"
     content="少女祈祷中..."
   />
-  <meta property="og:url" content="https://kasises.github.io/tags/" />
+  <meta property="og:url" content="https://kasises.github.io/post/1.-mysql-%E9%85%8D%E7%BD%AE/" />
   <meta
     property="og:site_name"
     content="风林火山"
   />
   <meta
     property="og:image"
-    content="/"
+    content="https://img0.baidu.com/it/u=1376455434,4293181991&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500"
   />
   <meta property="article:author" content="圣子百炼" />
-  <meta property="article:published_time" content="0001-01-01T00:00:00&#43;00:00" />
-  <meta property="article:modified_time" content="0001-01-01T00:00:00&#43;00:00" /><meta name="twitter:card" content="summary" />
-  <meta name="twitter:image" content="/" /><link rel="alternate" type="application/rss+xml" href="https://kasises.github.io/tags/index.xml" title="风林火山">
+  <meta property="article:published_time" content="2024-06-27T00:00:00-07:00" />
+  <meta property="article:modified_time" content="2024-06-27T00:00:00-07:00" /><meta name="twitter:card" content="summary" />
+  <meta name="twitter:image" content="https://img0.baidu.com/it/u=1376455434,4293181991&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500" />
 <link rel="shortcut icon" href="/favicon.ico"><link rel="stylesheet" href="/css/main.min.c7c6f3d05a45f313ba91f5299895893f7e28a358f57d464939b5495907e503ef.css" />
 <link
     rel="preload"
@@ -127,19 +127,38 @@
         <a class="main-nav-link" href="/friend">友链</a>
       </span><a id="main-nav-toggle" class="nav-icon"></a>
   </nav>
-  <nav id="sub-nav"><a id="nav-rss-link" class="nav-icon" href="/tags/index.xml" title="RSS 订阅" target="_blank"></a><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a></nav></div>
-<header id="header"><picture></picture><img  fetchpriority="high" src="/images/banner.webp" alt="Tags"><div id="header-outer">
+  <nav id="sub-nav"><a id="nav-search-btn" class="nav-icon popup-trigger" title="搜索"></a></nav></div>
+<header id="header"><picture></picture>
+    <img  fetchpriority="high" src="https://img0.baidu.com/it/u=1376455434,4293181991&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500" alt="Maxwell 和 MySQL 配置示例"><div id="header-outer">
     <div id="header-title"><a href="/" id="logo">
-            <h1 data-aos="slide-up">标签</h1>
+            <h1 data-aos="slide-up">Maxwell 和 MySQL 配置示例</h1>
           </a><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
           
-          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper ">
+          class="sidebar-right"  ><aside id="sidebar"><div class="sidebar-wrapper wrap-sticky">
     <div
       class="sidebar-wrap"
       data-aos="fade-up"
-    ><div class="sidebar-author">
+    ><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#以下是一个完整且优化的-maxwell-和-mysql-配置示例旨在采集-mysql-的-binlog-日志并存入-kafka-指定的-topic-中结合题目要求以下配置包括-mysql-和-maxwell-的详细设置">以下是一个完整且优化的 Maxwell 和 MySQL 配置示例，旨在采集 MySQL 的 binlog 日志并存入 Kafka 指定的 Topic 中。结合题目要求，以下配置包括 MySQL 和 Maxwell 的详细设置。</a>
+      <ul>
+        <li><a href="#1-mysql-配置"><strong>1. MySQL 配置</strong></a></li>
+        <li><a href="#2-创建-maxwell-用户"><strong>2. 创建 Maxwell 用户</strong></a></li>
+        <li><a href="#3-maxwell-配置"><strong>3. Maxwell 配置</strong></a></li>
+        <li><a href="#4-启动与验证"><strong>4. 启动与验证</strong></a></li>
+        <li><a href="#总结"><strong>总结</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
     data-src="/avatar/avatar.webp"
     data-sizes="auto"
@@ -214,40 +233,152 @@
       <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
       <div class="sidebar-menu-link">友链</div>
     </div></div>
-</div>
+</div><div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div></div>
   </div>
 
-  <div class="sidebar-widget"><div class="widget-wrapper">
-    <div
-      class="widget-wrap"
-      data-aos="fade-up"
-    >
-      <h3 class="widget-title">最新文章</h3>
-      <div class="widget">
-        <ul><li>
-              <a href="/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/">实时采集的方法</a>
-            </li><li>
-              <a href="/post/flink_kafka_job_guide/">Flume &#43; Flink Kafka 实时处理任务配置与开发</a>
-            </li><li>
-              <a href="/post/vue_flask_guide/"> Vue 前端 &#43; Flask 后端开发环境搭建</a>
-            </li><li>
-              <a href="/post/1.-mysql-%E9%85%8D%E7%BD%AE/">Maxwell 和 MySQL 配置示例</a>
-            </li><li>
-              <a href="/post/flume_kafka_flink_pipeline/">Flume &#43; Kafka &#43; Flink 实时计算项目说明文档</a>
-            </li></ul>
-      </div>
-    </div>
-  </div></div></aside>
-<section id="main"><div
-    class="archives-outer-wrap"
+  <div class="sidebar-widget"></div></aside>
+<section id="main"><article
+  class="h-entry article"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <div
+    class="article-inner"
     data-aos="fade-up"
   >
-    <div
-      class="
-        tag-wrap
-      "
-    ></div>
-  </div></section>
+    <div class="article-meta"><div class="article-date">
+  <span
+    class="article-date-link"
+    data-aos="zoom-in"
+  >
+    <time datetime="2024-06-27 00:00:00 -0700 -0700" itemprop="datePublished"
+      >2024-06-27</time
+    >
+    <time style="display: none;" id="post-update-time"
+      >2024-06-27</time
+    >
+  </span>
+</div>
+<div class="article-category"></div>
+</div>
+    <div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h2 id="以下是一个完整且优化的-maxwell-和-mysql-配置示例旨在采集-mysql-的-binlog-日志并存入-kafka-指定的-topic-中结合题目要求以下配置包括-mysql-和-maxwell-的详细设置">
+<a class="header-anchor" href="#%e4%bb%a5%e4%b8%8b%e6%98%af%e4%b8%80%e4%b8%aa%e5%ae%8c%e6%95%b4%e4%b8%94%e4%bc%98%e5%8c%96%e7%9a%84-maxwell-%e5%92%8c-mysql-%e9%85%8d%e7%bd%ae%e7%a4%ba%e4%be%8b%e6%97%a8%e5%9c%a8%e9%87%87%e9%9b%86-mysql-%e7%9a%84-binlog-%e6%97%a5%e5%bf%97%e5%b9%b6%e5%ad%98%e5%85%a5-kafka-%e6%8c%87%e5%ae%9a%e7%9a%84-topic-%e4%b8%ad%e7%bb%93%e5%90%88%e9%a2%98%e7%9b%ae%e8%a6%81%e6%b1%82%e4%bb%a5%e4%b8%8b%e9%85%8d%e7%bd%ae%e5%8c%85%e6%8b%ac-mysql-%e5%92%8c-maxwell-%e7%9a%84%e8%af%a6%e7%bb%86%e8%ae%be%e7%bd%ae"></a>
+以下是一个完整且优化的 Maxwell 和 MySQL 配置示例，旨在采集 MySQL 的 binlog 日志并存入 Kafka 指定的 Topic 中。结合题目要求，以下配置包括 MySQL 和 Maxwell 的详细设置。
+</h2><h3 id="1-mysql-配置">
+<a class="header-anchor" href="#1-mysql-%e9%85%8d%e7%bd%ae"></a>
+<strong>1. MySQL 配置</strong>
+</h3><p>编辑 MySQL 配置文件（如 <code>/etc/my.cnf</code> 或 <code>/usr/local/mysql/my.cnf</code>），确保以下配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[mysqld]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 基础设置</span>
+</span></span><span class="line"><span class="cl"><span class="na">datadir</span><span class="o">=</span><span class="s">/usr/local/mysql/data</span>
+</span></span><span class="line"><span class="cl"><span class="na">port</span><span class="o">=</span><span class="s">3306</span>
+</span></span><span class="line"><span class="cl"><span class="na">max_connections</span><span class="o">=</span><span class="s">400</span>
+</span></span><span class="line"><span class="cl"><span class="na">sql_mode</span><span class="o">=</span><span class="s">NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span>
+</span></span><span class="line"><span class="cl"><span class="na">lower_case_table_names</span><span class="o">=</span><span class="s">1</span>
+</span></span><span class="line"><span class="cl"><span class="na">innodb_file_per_table</span><span class="o">=</span><span class="s">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># binlog 配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">server-id</span><span class="o">=</span><span class="s">1                          # 每个实例唯一</span>
+</span></span><span class="line"><span class="cl"><span class="na">log-bin</span><span class="o">=</span><span class="s">mysql-bin                    # 启用 binlog 并设置基本名称</span>
+</span></span><span class="line"><span class="cl"><span class="na">binlog_format</span><span class="o">=</span><span class="s">row                    # 设置 binlog 格式为 ROW</span>
+</span></span><span class="line"><span class="cl"><span class="na">expire_logs_days</span><span class="o">=</span><span class="s">7                   # binlog 文件保留 7 天后自动清理</span>
+</span></span><span class="line"><span class="cl"><span class="na">binlog_do_db</span><span class="o">=</span><span class="s">shtd_db1                # 仅记录指定数据库的 binlog</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果有多个数据库，可以重复添加 binlog-do-db 行</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># binlog-do-db=shtd_db2</span>
+</span></span></code></pre></div><hr>
+<h3 id="2-创建-maxwell-用户">
+<a class="header-anchor" href="#2-%e5%88%9b%e5%bb%ba-maxwell-%e7%94%a8%e6%88%b7"></a>
+<strong>2. 创建 Maxwell 用户</strong>
+</h3><p>在 MySQL 中执行以下命令，为 Maxwell 创建一个用户并授予必要权限：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">CREATE</span><span class="w"> </span><span class="k">USER</span><span class="w"> </span><span class="s1">&#39;maxwell&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="w"> </span><span class="n">IDENTIFIED</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="s1">&#39;password&#39;</span><span class="p">;</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GRANT</span><span class="w"> </span><span class="k">SELECT</span><span class="p">,</span><span class="w"> </span><span class="n">REPLICATION</span><span class="w"> </span><span class="n">SLAVE</span><span class="p">,</span><span class="w"> </span><span class="n">REPLICATION</span><span class="w"> </span><span class="n">CLIENT</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="o">*</span><span class="p">.</span><span class="o">*</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="s1">&#39;maxwell&#39;</span><span class="o">@</span><span class="s1">&#39;%&#39;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">FLUSH</span><span class="w"> </span><span class="k">PRIVILEGES</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><hr>
+<h3 id="3-maxwell-配置">
+<a class="header-anchor" href="#3-maxwell-%e9%85%8d%e7%bd%ae"></a>
+<strong>3. Maxwell 配置</strong>
+</h3><p>Maxwell 的配置文件（如 <code>config.properties</code>）通常位于 Maxwell 安装目录中。如果不存在，需要创建。以下是优化后的配置示例：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="c1"># MySQL 配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">host</span><span class="o">=</span><span class="s">192.168.1.100                  # MySQL 主机地址</span>
+</span></span><span class="line"><span class="cl"><span class="na">user</span><span class="o">=</span><span class="s">maxwell                        # Maxwell 用户</span>
+</span></span><span class="line"><span class="cl"><span class="na">password</span><span class="o">=</span><span class="s">password                   # Maxwell 用户密码</span>
+</span></span><span class="line"><span class="cl"><span class="na">port</span><span class="o">=</span><span class="s">3306                           # MySQL 端口</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Kafka 配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">producer</span><span class="o">=</span><span class="s">kafka                      # 指定消息投递到 Kafka</span>
+</span></span><span class="line"><span class="cl"><span class="na">kafka.bootstrap.servers</span><span class="o">=</span><span class="s">192.168.1.200:9092,192.168.1.201:9092  # Kafka 集群地址</span>
+</span></span><span class="line"><span class="cl"><span class="na">kafka_topic</span><span class="o">=</span><span class="s">maxwell_shtd_db1        # Kafka Topic 名称</span>
+</span></span></code></pre></div><hr>
+<h3 id="4-启动与验证">
+<a class="header-anchor" href="#4-%e5%90%af%e5%8a%a8%e4%b8%8e%e9%aa%8c%e8%af%81"></a>
+<strong>4. 启动与验证</strong>
+</h3><h4 id="启动-maxwell">
+<a class="header-anchor" href="#%e5%90%af%e5%8a%a8-maxwell"></a>
+启动 Maxwell
+</h4><p>运行以下命令启动 Maxwell：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bin/maxwell --config config.properties
+</span></span></code></pre></div><h4 id="验证日志">
+<a class="header-anchor" href="#%e9%aa%8c%e8%af%81%e6%97%a5%e5%bf%97"></a>
+验证日志
+</h4><p>观察 Maxwell 的启动日志，确认是否成功连接到 MySQL 和 Kafka，并输出类似以下信息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">INFO  Connected to MySQL at 192.168.1.100:3306
+</span></span><span class="line"><span class="cl">INFO  Kafka producer connected to: 192.168.1.200:9092
+</span></span><span class="line"><span class="cl">INFO  Starting to stream changes from binlog mysql-bin.000001:154
+</span></span></code></pre></div><h4 id="验证-kafka-消息">
+<a class="header-anchor" href="#%e9%aa%8c%e8%af%81-kafka-%e6%b6%88%e6%81%af"></a>
+验证 Kafka 消息
+</h4><p>使用 Kafka 自带的消费者工具查看指定 Topic 是否接收到 Maxwell 发送的消息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">kafka-console-consumer --bootstrap-server 192.168.1.200:9092 --topic maxwell_shtd_db1 --from-beginning
+</span></span></code></pre></div><p>你应该能看到类似以下格式的 JSON 消息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;database&#34;</span><span class="p">:</span> <span class="s2">&#34;shtd_db1&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;table&#34;</span><span class="p">:</span> <span class="s2">&#34;users&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;insert&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;ts&#34;</span><span class="p">:</span> <span class="mi">1672394546</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;xid&#34;</span><span class="p">:</span> <span class="mi">12345</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;data&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;id&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Alice&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;email&#34;</span><span class="p">:</span> <span class="s2">&#34;alice@example.com&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><hr>
+<h3 id="总结">
+<a class="header-anchor" href="#%e6%80%bb%e7%bb%93"></a>
+<strong>总结</strong>
+</h3><ul>
+<li><strong>MySQL 配置</strong>：启用 binlog，设置 <code>row</code> 格式，明确 binlog 记录的数据库。</li>
+<li><strong>Maxwell 配置</strong>：确保 Kafka 地址正确，指定 Topic 名称，并优化消息过滤规则。</li>
+<li><strong>验证</strong>：检查 Maxwell 和 Kafka 是否正常工作，确认消息被正确消费。</li>
+</ul>
+<p>如需调整更多细节，例如消息格式或过滤特定数据表，Maxwell 提供灵活的选项支持。</p>
+</div>
+    <footer class="article-footer"><ul class="article-tag-list" itemprop="keywords"></ul>
+</footer>
+  </div><nav
+    id="article-nav"
+    data-aos="fade-up"
+  ><div class="article-nav-link-wrap article-nav-link-left"><img
+            data-src="https://img2.baidu.com/it/u=2323422912,1886925700&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=800&amp;h=500"
+            data-sizes="auto"
+            alt="Flume &#43; Kafka &#43; Flink 实时计算项目说明文档"
+            class="lazyload"
+          /><a href="/post/flume_kafka_flink_pipeline/"></a>
+        <div class="article-nav-caption">前一篇</div>
+        <h3 class="article-nav-title">Flume &#43; Kafka &#43; Flink 实时计算项目说明文档</h3>
+      </div><div class="article-nav-link-wrap article-nav-link-right"><img
+            data-src="https://img1.baidu.com/it/u=392907954,3028948651&amp;fm=253&amp;fmt=auto&amp;app=120&amp;f=JPEG?w=799&amp;h=500"
+            data-sizes="auto"
+            alt=" Vue 前端 &#43; Flask 后端开发环境搭建"
+            class="lazyload"
+          /><a href="/post/vue_flask_guide/"></a>
+        <div class="article-nav-caption">后一篇</div>
+        <h3 class="article-nav-title"> Vue 前端 &#43; Flask 后端开发环境搭建</h3>
+      </div></nav></article></section>
         </div><footer id="footer">
   <div style="width: 100%; overflow: hidden">
     <div class="footer-line"></div>
@@ -292,7 +423,25 @@
             <div class="arrow-up"></div>
           </div><div id="mask" class="hide"></div>
       </div><nav id="mobile-nav">
-  <div class="sidebar-wrap"><div class="sidebar-author">
+  <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#以下是一个完整且优化的-maxwell-和-mysql-配置示例旨在采集-mysql-的-binlog-日志并存入-kafka-指定的-topic-中结合题目要求以下配置包括-mysql-和-maxwell-的详细设置">以下是一个完整且优化的 Maxwell 和 MySQL 配置示例，旨在采集 MySQL 的 binlog 日志并存入 Kafka 指定的 Topic 中。结合题目要求，以下配置包括 MySQL 和 Maxwell 的详细设置。</a>
+      <ul>
+        <li><a href="#1-mysql-配置"><strong>1. MySQL 配置</strong></a></li>
+        <li><a href="#2-创建-maxwell-用户"><strong>2. 创建 Maxwell 用户</strong></a></li>
+        <li><a href="#3-maxwell-配置"><strong>3. Maxwell 配置</strong></a></li>
+        <li><a href="#4-启动与验证"><strong>4. 启动与验证</strong></a></li>
+        <li><a href="#总结"><strong>总结</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div></div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img
     data-src="/avatar/avatar.webp"
     data-sizes="auto"
@@ -367,7 +516,10 @@
       <div class='sidebar-menu-icon icon rotate'>&#xe62b;</div>
       <div class="sidebar-menu-link">友链</div>
     </div></div>
-</div></nav>
+</div></div><div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div></nav>
 </div><div class="site-search">
         <div class="reimu-popup popup">
           <div class="reimu-search">
@@ -436,10 +588,10 @@
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "圣子百炼",
-          title: "Tags",
-          url: "https:\/\/kasises.github.io\/tags\/",
-          description: "",
-          cover: "https:\/\/kasises.github.io\/images\/banner.webp",
+          title: "Maxwell 和 MySQL 配置示例",
+          url: "https:\/\/kasises.github.io\/post\/1.-mysql-%E9%85%8D%E7%BD%AE\/",
+          description: "\r以下是一个完整且优化的 Maxwell 和 MySQL 配置示例，旨在采集 MySQL 的 binlog 日志并存入 Kafka 指定的 Topic 中。结合题目要求，以下配置包括 MySQL 和 Maxwell 的详细设置。\r1. MySQL 配置\r编辑 MySQL 配置文件（如 \/etc\/my.cnf 或 \/usr\/local\/mysql\/my.cnf），确保以下配置：\n",
+          cover: "https:\/\/img0.baidu.com\/it\/u=1376455434,4293181991\u0026fm=253\u0026fmt=auto\u0026app=120\u0026f=JPEG?w=800\u0026h=500",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const pswp = () => {
           if (_$$('.article-entry a.article-gallery-item').length > 0) {
