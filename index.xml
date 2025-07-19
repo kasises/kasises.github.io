@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>风林火山</title>
+    <link>https://kasises.github.io/</link>
+    <description>Recent content from 风林火山</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (圣子百炼)</managingEditor>
+    <webMaster>xxx@example.com (圣子百炼)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Thu, 17 Jul 2025 00:00:00 -0700</lastBuildDate>
+    
+    
+    <atom:link href="https://kasises.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>实时采集的方法</title>
+      <link>https://kasises.github.io/post/%E6%B0%B4%E5%88%A9%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/</link>
+      <pubDate>Thu, 17 Jul 2025 00:00:00 -0700</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/%E6%B0%B4%E5%88%A9%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/</guid>
+      <description>
+        <![CDATA[<h1>实时采集的方法</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <ol>
+<li>
+<p>反推入库：<strong>反推入库流量就是用时段内库容差推出一 场洪水的实际入库过程</strong>，本意是还原次降水形成的洪水由起 涨<del>峰顶</del>落平的原始过程。
+ </p>
+</li>
+<li>
+<p>库容：<strong>指水库在某一水位下可储存的水体总体积，通常分为多个层级</strong>：</p>
+        
+        <hr><p>本文2025-07-17首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2025-07-17</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>实时采集的方法</title>
+      <link>https://kasises.github.io/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Fri, 27 Jun 2025 00:00:00 -0700</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/</guid>
+      <description>
+        <![CDATA[<h1>实时采集的方法</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <h2 id="1">
+<a class="header-anchor" href="#1"></a>
+1.
+</h2><h2 id="使用-flume-采集某端口的实时数据流并存入-kafka-指定的topic-中">
+<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-flume-%e9%87%87%e9%9b%86%e6%9f%90%e7%ab%af%e5%8f%a3%e7%9a%84%e5%ae%9e%e6%97%b6%e6%95%b0%e6%8d%ae%e6%b5%81%e5%b9%b6%e5%ad%98%e5%85%a5-kafka-%e6%8c%87%e5%ae%9a%e7%9a%84topic-%e4%b8%ad"></a>
+使用 Flume 采集某端口的实时数据流并存入 Kafka 指定的Topic 中
+</h2><h3 id="flume的配置">
+<a class="header-anchor" href="#flume%e7%9a%84%e9%85%8d%e7%bd%ae"></a>
+flume的配置
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">a1.sources=r1
+</span></span><span class="line"><span class="cl">a1.sinks=k1
+</span></span><span class="line"><span class="cl">a1.channels=c1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sources.r1.type=netcat
+</span></span><span class="line"><span class="cl">a1.sources.r1.bind=master
+</span></span><span class="line"><span class="cl">a1.sources.r1.port=9999
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sinks.k1.type=org.apache.flume.sink.kafka.KafkaSink
+</span></span><span class="line"><span class="cl">a1.sinks.k1.brokerList=master:9092,slave1:9092,slave2:9092
+</span></span><span class="line"><span class="cl">a1.sinks.k1.topic=lol
+</span></span><span class="line"><span class="cl">a1.sinks.k1.serializer.class=kafka.serializer.StringEncoding
+</span></span><span class="line"><span class="cl">a1.sinks.kafka.producer.max.request.size=10240000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.channels.c1.type=memory
+</span></span><span class="line"><span class="cl">a1.channels.c1.capacity=100000
+</span></span><span class="line"><span class="cl">a1.channels.c1.transactionCapacity=1000
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">a1.sources.r1.channels=c1
+</span></span><span class="line"><span class="cl">a1.sinks.k1.channel=c1
+</span></span></code></pre></div><h3 id="如何做">
+<a class="header-anchor" href="#%e5%a6%82%e4%bd%95%e5%81%9a"></a>
+#如何做
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">1.启动自己配置的flume文件
+</span></span><span class="line"><span class="cl">2.启动kafka
+</span></span><span class="line"><span class="cl">3.配置kafka主题
+</span></span><span class="line"><span class="cl">4.消费kafka
+</span></span></code></pre></div><h2 id="2">
+<a class="header-anchor" href="#2"></a>
+2.
+</h2><h2 id="使用-maxwell-采集-mysql-的-binlog-日志并存入-kafka-指定的topic-中">
+<a class="header-anchor" href="#%e4%bd%bf%e7%94%a8-maxwell-%e9%87%87%e9%9b%86-mysql-%e7%9a%84-binlog-%e6%97%a5%e5%bf%97%e5%b9%b6%e5%ad%98%e5%85%a5-kafka-%e6%8c%87%e5%ae%9a%e7%9a%84topic-%e4%b8%ad"></a>
+使用 Maxwell 采集 MySQL 的 binlog 日志并存入 Kafka 指定的Topic 中
+</h2><h3 id="maxwell的配置">
+<a class="header-anchor" href="#maxwell%e7%9a%84%e9%85%8d%e7%bd%ae"></a>
+Maxwell的配置
+</h3><p>在Maxwell中配置到config.properties文件（可能需要自己创建）</p>
+        
+        <hr><p>本文2025-06-27首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2025-06-27</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Maxwell 和 MySQL 配置示例</title>
+      <link>https://kasises.github.io/post/1.-mysql-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 27 Jun 2025 00:00:00 -0700</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/1.-mysql-%E9%85%8D%E7%BD%AE/</guid>
+      <description>
+        <![CDATA[<h1>Maxwell 和 MySQL 配置示例</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <h3 id="1-mysql-配置">
+<a class="header-anchor" href="#1-mysql-%e9%85%8d%e7%bd%ae"></a>
+<strong>1. MySQL 配置</strong>
+</h3><p>编辑 MySQL 配置文件（如 <code>/etc/my.cnf</code> 或 <code>/usr/local/mysql/my.cnf</code>），确保以下配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="k">[mysqld]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 基础设置</span>
+</span></span><span class="line"><span class="cl"><span class="na">datadir</span><span class="o">=</span><span class="s">/usr/local/mysql/data</span>
+</span></span><span class="line"><span class="cl"><span class="na">port</span><span class="o">=</span><span class="s">3306</span>
+</span></span><span class="line"><span class="cl"><span class="na">max_connections</span><span class="o">=</span><span class="s">400</span>
+</span></span><span class="line"><span class="cl"><span class="na">sql_mode</span><span class="o">=</span><span class="s">NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES</span>
+</span></span><span class="line"><span class="cl"><span class="na">lower_case_table_names</span><span class="o">=</span><span class="s">1</span>
+</span></span><span class="line"><span class="cl"><span class="na">innodb_file_per_table</span><span class="o">=</span><span class="s">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># binlog 配置</span>
+</span></span><span class="line"><span class="cl"><span class="na">server-id</span><span class="o">=</span><span class="s">1                          # 每个实例唯一</span>
+</span></span><span class="line"><span class="cl"><span class="na">log-bin</span><span class="o">=</span><span class="s">mysql-bin                    # 启用 binlog 并设置基本名称</span>
+</span></span><span class="line"><span class="cl"><span class="na">binlog_format</span><span class="o">=</span><span class="s">row                    # 设置 binlog 格式为 ROW</span>
+</span></span><span class="line"><span class="cl"><span class="na">expire_logs_days</span><span class="o">=</span><span class="s">7                   # binlog 文件保留 7 天后自动清理</span>
+</span></span><span class="line"><span class="cl"><span class="na">binlog_do_db</span><span class="o">=</span><span class="s">shtd_db1                # 仅记录指定数据库的 binlog</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果有多个数据库，可以重复添加 binlog-do-db 行</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># binlog-do-db=shtd_db2</span>
+</span></span></code></pre></div><hr>
+<h3 id="2-创建-maxwell-用户">
+<a class="header-anchor" href="#2-%e5%88%9b%e5%bb%ba-maxwell-%e7%94%a8%e6%88%b7"></a>
+<strong>2. 创建 Maxwell 用户</strong>
+</h3><p>在 MySQL 中执行以下命令，为 Maxwell 创建一个用户并授予必要权限：</p>
+        
+        <hr><p>本文2025-06-27首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2025-06-27</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Vue前端 &#43; 后端 Flask 构建</title>
+      <link>https://kasises.github.io/post/vue_flask_guide/</link>
+      <pubDate>Wed, 15 May 2024 11:00:00 -0700</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/vue_flask_guide/</guid>
+      <description>
+        <![CDATA[<h1>Vue前端 + 后端 Flask 构建</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <h2 id="一前端构建步骤">
+<a class="header-anchor" href="#%e4%b8%80%e5%89%8d%e7%ab%af%e6%9e%84%e5%bb%ba%e6%ad%a5%e9%aa%a4"></a>
+一、前端构建步骤
+</h2><h3 id="1-安装-nodejs">
+<a class="header-anchor" href="#1-%e5%ae%89%e8%a3%85-nodejs"></a>
+1. 安装 Node.js
+</h3><ul>
+<li>访问官网下载安装： <a href="https://nodejs.org/zh-cn/download">https://nodejs.org/zh-cn/download</a></li>
+<li>下载 Windows 64 位 <code>.msi</code> 文件，安装时建议不要安装到 C 盘或带中文的目录。</li>
+</ul>
+<p><strong>验证安装是否成功：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">node -v
+</span></span><span class="line"><span class="cl">npm -v
+</span></span></code></pre></div><h3 id="2-升级相关依赖">
+<a class="header-anchor" href="#2-%e5%8d%87%e7%ba%a7%e7%9b%b8%e5%85%b3%e4%be%9d%e8%b5%96"></a>
+2. 升级相关依赖
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install express --registry<span class="o">=</span>https://registry.npm.taobao.org
+</span></span><span class="line"><span class="cl">npm install -g node
+</span></span><span class="line"><span class="cl">npm install -g npm
+</span></span><span class="line"><span class="cl">npm install -g cnpm --registry<span class="o">=</span>https://registry.npm.taobao.org
+</span></span></code></pre></div><h3 id="3-安装-vue-cli-脚手架工具">
+<a class="header-anchor" href="#3-%e5%ae%89%e8%a3%85-vue-cli-%e8%84%9a%e6%89%8b%e6%9e%b6%e5%b7%a5%e5%85%b7"></a>
+3. 安装 vue-cli 脚手架工具
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install -g @vue/cli
+</span></span><span class="line"><span class="cl">vue -V  <span class="c1"># 查看版本，必须为 4.5.X 以上</span>
+</span></span></code></pre></div><p><strong>如需升级 vue-cli：</strong></p>
+        
+        <hr><p>本文2024-05-15首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2024-05-15</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Flume &#43; Flink Kafka 实时处理任务配置与开发</title>
+      <link>https://kasises.github.io/post/flink_kafka_job_guide.md/</link>
+      <pubDate>Wed, 15 May 2024 11:00:00 -0700</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/flink_kafka_job_guide.md/</guid>
+      <description>
+        <![CDATA[<h1>Flume + Flink Kafka 实时处理任务配置与开发</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <h2 id="一flume-采集器配置">
+<a class="header-anchor" href="#%e4%b8%80flume-%e9%87%87%e9%9b%86%e5%99%a8%e9%85%8d%e7%bd%ae"></a>
+一、Flume 采集器配置
+</h2><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">a1.sources</span><span class="o">=</span><span class="s">r1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.channels</span><span class="o">=</span><span class="s">c1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks</span><span class="o">=</span><span class="s">k1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.type</span><span class="o">=</span><span class="s">netcat</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.bind</span><span class="o">=</span><span class="s">localhost</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.port</span><span class="o">=</span><span class="s">26001</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.channels.c1.type</span><span class="o">=</span><span class="s">memory</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.channels.c1.capacity</span><span class="o">=</span><span class="s">1000</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.channels.c1.transactionCapacity</span><span class="o">=</span><span class="s">100</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.type</span><span class="o">=</span><span class="s">org.apache.flume.sink.kafka.KafkaSink</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.brokerList</span><span class="o">=</span><span class="s">master:9092,slave1:9092,slave2:9092</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.topic</span><span class="o">=</span><span class="s">tb_hhh</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.serializer.class</span><span class="o">=</span><span class="s">kafka.serializer.StringEncoder</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.channels</span><span class="o">=</span><span class="s">c1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.channel</span><span class="o">=</span><span class="s">c1</span>
+</span></span></code></pre></div><h2 id="二flink-任务开发步骤">
+<a class="header-anchor" href="#%e4%ba%8cflink-%e4%bb%bb%e5%8a%a1%e5%bc%80%e5%8f%91%e6%ad%a5%e9%aa%a4"></a>
+二、Flink 任务开发步骤
+</h2><h3 id="1-构建-flink-环境">
+<a class="header-anchor" href="#1-%e6%9e%84%e5%bb%ba-flink-%e7%8e%af%e5%a2%83"></a>
+1. 构建 Flink 环境
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">env</span> <span class="k">=</span> <span class="nc">StreamExecutionEnvironment</span><span class="o">.</span><span class="n">getExecutionEnvironment</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span><span class="o">.</span><span class="n">setParallelism</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">...</span>
+</span></span><span class="line"><span class="cl"><span class="n">inputStream</span><span class="o">.</span><span class="n">print</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">env</span><span class="o">.</span><span class="n">execute</span><span class="o">(</span><span class="s">&#34;JobName&#34;</span><span class="o">)</span>
+</span></span></code></pre></div><h3 id="2-确认数据来源">
+<a class="header-anchor" href="#2-%e7%a1%ae%e8%ae%a4%e6%95%b0%e6%8d%ae%e6%9d%a5%e6%ba%90"></a>
+2. 确认数据来源
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="c1">// 测试文件
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">inputStream</span> <span class="k">=</span> <span class="n">env</span><span class="o">.</span><span class="n">readTextFile</span><span class="o">(</span><span class="s">&#34;路径&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// 网络端口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">inputStream</span> <span class="k">=</span> <span class="n">env</span><span class="o">.</span><span class="n">socketTextStream</span><span class="o">(</span><span class="s">&#34;localhost&#34;</span><span class="o">,</span> <span class="n">端口号</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Kafka
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">val</span> <span class="n">props</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Properties</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">props</span><span class="o">.</span><span class="n">setProperty</span><span class="o">(</span><span class="s">&#34;bootstrap.servers&#34;</span><span class="o">,</span> <span class="s">&#34;192.168.136.3:9092,...&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">props</span><span class="o">.</span><span class="n">setProperty</span><span class="o">(</span><span class="s">&#34;group.id&#34;</span><span class="o">,</span> <span class="s">&#34;aaa&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">val</span> <span class="n">inputStream</span> <span class="k">=</span> <span class="n">env</span><span class="o">.</span><span class="n">addSource</span><span class="o">(</span><span class="k">new</span> <span class="nc">FlinkKafkaConsumer</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="s">&#34;student_hhh&#34;</span><span class="o">,</span> <span class="k">new</span> <span class="nc">SimpleStringSchema</span><span class="o">(),</span> <span class="n">props</span><span class="o">))</span>
+</span></span></code></pre></div><h3 id="3-数据清洗">
+<a class="header-anchor" href="#3-%e6%95%b0%e6%8d%ae%e6%b8%85%e6%b4%97"></a>
+3. 数据清洗
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">dataStream</span> <span class="k">=</span> <span class="n">inputStream</span><span class="o">.</span><span class="n">filter</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="n">x</span><span class="o">.</span><span class="n">startsWith</span><span class="o">(</span><span class="s">&#34;A&#34;</span><span class="o">))</span>
+</span></span></code></pre></div><h3 id="4-数据分组与聚合">
+<a class="header-anchor" href="#4-%e6%95%b0%e6%8d%ae%e5%88%86%e7%bb%84%e4%b8%8e%e8%81%9a%e5%90%88"></a>
+4. 数据分组与聚合
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">resultStream</span> <span class="k">=</span> <span class="n">dataStream</span><span class="o">.</span><span class="n">map</span><span class="o">(</span><span class="n">x</span> <span class="k">=&gt;</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="n">arr1</span> <span class="k">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="o">(</span><span class="s">&#34;分隔符&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">val</span> <span class="n">arr2</span> <span class="k">=</span> <span class="n">arr1</span><span class="o">(</span><span class="mi">1</span><span class="o">).</span><span class="n">split</span><span class="o">(</span><span class="s">&#34;分隔符&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">(</span><span class="n">arr2</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="mi">1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">}).</span><span class="n">keyBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_1</span><span class="o">).</span><span class="n">sum</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>
+</span></span></code></pre></div><h3 id="5-时间窗口可选">
+<a class="header-anchor" href="#5-%e6%97%b6%e9%97%b4%e7%aa%97%e5%8f%a3%e5%8f%af%e9%80%89"></a>
+5. 时间窗口（可选）
+</h3><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="o">.</span><span class="n">keyBy</span><span class="o">(</span><span class="k">_</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="o">.</span><span class="n">timeWindow</span><span class="o">(</span><span class="nc">Time</span><span class="o">.</span><span class="n">minutes</span><span class="o">(</span><span class="mi">8</span><span class="o">))</span> <span class="c1">// 滚动窗口
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="o">.</span><span class="n">timeWindow</span><span class="o">(</span><span class="nc">Time</span><span class="o">.</span><span class="n">minutes</span><span class="o">(</span><span class="mi">10</span><span class="o">),</span> <span class="nc">Time</span><span class="o">.</span><span class="n">minutes</span><span class="o">(</span><span class="mi">3</span><span class="o">))</span> <span class="c1">// 滑动窗口
+</span></span></span></code></pre></div><h3 id="6-数据输出">
+<a class="header-anchor" href="#6-%e6%95%b0%e6%8d%ae%e8%be%93%e5%87%ba"></a>
+6. 数据输出
+</h3><h4 id="1-redis-字符串形式">
+<a class="header-anchor" href="#1-redis-%e5%ad%97%e7%ac%a6%e4%b8%b2%e5%bd%a2%e5%bc%8f"></a>
+(1) Redis 字符串形式
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">val</span> <span class="n">conf</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">FlinkJedisPoolConfig</span><span class="o">.</span><span class="nc">Builder</span><span class="o">().</span><span class="n">setHost</span><span class="o">(</span><span class="s">&#34;localhost&#34;</span><span class="o">).</span><span class="n">setPort</span><span class="o">(</span><span class="mi">6379</span><span class="o">).</span><span class="n">build</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">dataStream</span><span class="o">.</span><span class="n">addSink</span><span class="o">(</span><span class="k">new</span> <span class="nc">RedisSink</span><span class="o">[</span><span class="kt">String</span><span class="o">](</span><span class="n">conf</span><span class="o">,</span> <span class="k">new</span> <span class="nc">RedisMapper</span><span class="o">[</span><span class="kt">String</span><span class="o">]</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">getCommandDescription</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">RedisCommandDescription</span><span class="o">(</span><span class="nc">RedisCommand</span><span class="o">.</span><span class="nc">SET</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">getKeyFromData</span><span class="o">(</span><span class="n">t</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">_1</span>
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">getValueFromData</span><span class="o">(</span><span class="n">t</span><span class="k">:</span> <span class="kt">String</span><span class="o">)</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">_2</span><span class="o">.</span><span class="n">toString</span>
+</span></span><span class="line"><span class="cl"><span class="o">}))</span>
+</span></span></code></pre></div><h4 id="2-redis-哈希形式">
+<a class="header-anchor" href="#2-redis-%e5%93%88%e5%b8%8c%e5%bd%a2%e5%bc%8f"></a>
+(2) Redis 哈希形式
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">new</span> <span class="nc">RedisCommandDescription</span><span class="o">(</span><span class="nc">RedisCommand</span><span class="o">.</span><span class="nc">HSET</span><span class="o">,</span> <span class="s">&#34;myKey&#34;</span><span class="o">)</span>
+</span></span></code></pre></div><h4 id="3-数据存入-mysql">
+<a class="header-anchor" href="#3-%e6%95%b0%e6%8d%ae%e5%ad%98%e5%85%a5-mysql"></a>
+(3) 数据存入 MySQL
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MysqlSink</span> <span class="k">extends</span> <span class="nc">RichSinkFunction</span><span class="o">[(</span><span class="kt">String</span>, <span class="kt">Int</span><span class="o">)]</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">conn</span><span class="k">:</span> <span class="kt">Connection</span> <span class="o">=</span> <span class="k">_</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">upPstmt</span><span class="k">:</span> <span class="kt">PreparedStatement</span> <span class="o">=</span> <span class="k">_</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">inPstmt</span><span class="k">:</span> <span class="kt">PreparedStatement</span> <span class="o">=</span> <span class="k">_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">open</span><span class="o">(</span><span class="n">parameters</span><span class="k">:</span> <span class="kt">Configuration</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span> <span class="k">=</span> <span class="nc">DriverManager</span><span class="o">.</span><span class="n">getConnection</span><span class="o">(</span><span class="s">&#34;jdbc:mysql://...&#34;</span><span class="o">,</span><span class="s">&#34;root&#34;</span><span class="o">,</span><span class="s">&#34;password&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inPstmt</span> <span class="k">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">prepareStatement</span><span class="o">(</span><span class="s">&#34;INSERT INTO tb_course_score VALUES (NULL,?,?)&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">upPstmt</span> <span class="k">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">prepareStatement</span><span class="o">(</span><span class="s">&#34;UPDATE tb_course_score SET score=? WHERE course=?&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">invoke</span><span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="o">(</span><span class="kt">String</span><span class="o">,</span> <span class="kt">Int</span><span class="o">),</span> <span class="n">context</span><span class="k">:</span> <span class="kt">SinkFunction.Context</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">upPstmt</span><span class="o">.</span><span class="n">setInt</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">upPstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">upPstmt</span><span class="o">.</span><span class="n">execute</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="o">(</span><span class="n">upPstmt</span><span class="o">.</span><span class="n">getUpdateCount</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">      <span class="n">inPstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">inPstmt</span><span class="o">.</span><span class="n">setInt</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">      <span class="n">inPstmt</span><span class="o">.</span><span class="n">execute</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="o">}</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">close</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">upPstmt</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">inPstmt</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h4 id="4-数据写入-clickhouse">
+<a class="header-anchor" href="#4-%e6%95%b0%e6%8d%ae%e5%86%99%e5%85%a5-clickhouse"></a>
+(4) 数据写入 ClickHouse
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-scala" data-lang="scala"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">ClickHouseSink</span> <span class="k">extends</span> <span class="nc">RichSinkFunction</span><span class="o">[(</span><span class="kt">String</span>,<span class="kt">String</span>,<span class="kt">String</span>,<span class="kt">Double</span>,<span class="kt">String</span>,<span class="kt">String</span>,<span class="kt">String</span>,<span class="kt">String</span>,<span class="kt">String</span><span class="o">)]</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">conn</span><span class="k">:</span> <span class="kt">Connection</span> <span class="o">=</span> <span class="k">_</span>
+</span></span><span class="line"><span class="cl">  <span class="k">var</span> <span class="n">pstmt</span><span class="k">:</span> <span class="kt">PreparedStatement</span> <span class="o">=</span> <span class="k">_</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">open</span><span class="o">(</span><span class="n">parameters</span><span class="k">:</span> <span class="kt">Configuration</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span> <span class="k">=</span> <span class="nc">DriverManager</span><span class="o">.</span><span class="n">getConnection</span><span class="o">(</span><span class="s">&#34;jdbc:clickhouse://182.168.136.3&#34;</span><span class="o">,</span><span class="s">&#34;default&#34;</span><span class="o">,</span><span class="s">&#34;123456&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span> <span class="k">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">prepareStatement</span><span class="o">(</span><span class="s">&#34;INSERT INTO tb_hhh VALUES(?,?,?,?,?,?,?,?,?)&#34;</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">invoke</span><span class="o">(</span><span class="n">value</span><span class="k">:</span> <span class="o">(</span><span class="kt">String</span><span class="o">,</span> <span class="kt">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">,</span> <span class="nc">Double</span><span class="o">,</span> <span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">),</span> <span class="n">context</span><span class="k">:</span> <span class="kt">SinkFunction.Context</span><span class="o">)</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_1</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_2</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_3</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setDouble</span><span class="o">(</span><span class="mi">4</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_4</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">5</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_5</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">6</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_6</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">7</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_7</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">8</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_8</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">setString</span><span class="o">(</span><span class="mi">9</span><span class="o">,</span> <span class="n">value</span><span class="o">.</span><span class="n">_9</span><span class="o">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">execute</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">override</span> <span class="k">def</span> <span class="n">close</span><span class="o">()</span><span class="k">:</span> <span class="kt">Unit</span> <span class="o">=</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">    <span class="n">pstmt</span><span class="o">.</span><span class="n">close</span><span class="o">()</span>
+</span></span><span class="line"><span class="cl">  <span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></div><h3 id="7-提交执行任务">
+<a class="header-anchor" href="#7-%e6%8f%90%e4%ba%a4%e6%89%a7%e8%a1%8c%e4%bb%bb%e5%8a%a1"></a>
+7. 提交执行任务
+</h3><h4 id="打包步骤">
+<a class="header-anchor" href="#%e6%89%93%e5%8c%85%e6%ad%a5%e9%aa%a4"></a>
+打包步骤：
+</h4><ol>
+<li>在 IntelliJ IDEA 中构建 -&gt; Build Artifacts -&gt; Rebuild</li>
+<li>JAR 包路径：<code>out/artifacts/...jar</code></li>
+<li>传输至服务器 <code>/opt/jars/</code></li>
+</ol>
+<h4 id="执行任务">
+<a class="header-anchor" href="#%e6%89%a7%e8%a1%8c%e4%bb%bb%e5%8a%a1"></a>
+执行任务：
+</h4><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Flink 集群方式（需先监听端口）</span>
+</span></span><span class="line"><span class="cl">flink run -c com.xxx.MainClass /opt/jars/app.jar
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Yarn 方式（需启动 Hadoop）</span>
+</span></span><span class="line"><span class="cl">flink run -m yarn-cluster -c com.xxx.MainClass /opt/jars/app.jar
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果出错：</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">HADOOP_CLASSPATH</span><span class="o">=</span><span class="sb">`</span>hadoop classpath<span class="sb">`</span>
+</span></span></code></pre></div><hr>
+<p><strong>至此，完整数据采集、处理与存储流程完成。</strong></p>
+        
+        <hr><p>本文2024-05-15首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2024-05-15</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Hello World</title>
+      <link>https://kasises.github.io/post/hello/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/hello/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <p>💘 博麗 霊夢 💘</p>
+        
+        <hr><p>本文2023-03-15首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2023-03-15</p>]]>
+      </description>
+      
+    </item>
+    
+    
+
+    <item>
+      <title>Flume &#43; Kafka &#43; Flink 实时数据处理</title>
+      <link>https://kasises.github.io/post/flume_kafka_flink_pipeline/</link>
+      <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
+      <author>xxx@example.com (圣子百炼)</author>
+      <guid>https://kasises.github.io/post/flume_kafka_flink_pipeline/</guid>
+      <description>
+        <![CDATA[<h1>Flume + Kafka + Flink 实时数据处理</h1><p>作者：圣子百炼（xxx@example.com）</p>
+        
+          <h2 id="1-flume-采集数据至-kafka">
+<a class="header-anchor" href="#1-flume-%e9%87%87%e9%9b%86%e6%95%b0%e6%8d%ae%e8%87%b3-kafka"></a>
+1. Flume 采集数据至 Kafka
+</h2><h3 id="步骤一配置-flume-监听-20000-端口将数据打印到控制台测试">
+<a class="header-anchor" href="#%e6%ad%a5%e9%aa%a4%e4%b8%80%e9%85%8d%e7%bd%ae-flume-%e7%9b%91%e5%90%ac-20000-%e7%ab%af%e5%8f%a3%e5%b0%86%e6%95%b0%e6%8d%ae%e6%89%93%e5%8d%b0%e5%88%b0%e6%8e%a7%e5%88%b6%e5%8f%b0%e6%b5%8b%e8%af%95"></a>
+步骤一：配置 Flume 监听 20000 端口，将数据打印到控制台测试
+</h3><p><strong>配置文件 mytest.conf 内容：</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-properties" data-lang="properties"><span class="line"><span class="cl"><span class="na">a1.sources</span><span class="o">=</span><span class="s">r1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.channels</span><span class="o">=</span><span class="s">c1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks</span><span class="o">=</span><span class="s">k1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.type</span><span class="o">=</span><span class="s">netcat</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.bind</span><span class="o">=</span><span class="s">localhost</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.port</span><span class="o">=</span><span class="s">20000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.channels.c1.type</span><span class="o">=</span><span class="s">memory</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.type</span><span class="o">=</span><span class="s">logger</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#a1.sinks.k1.type=org.apache.flume.sink.kafka.KafkaSink</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#a1.sinks.k1.kafka.topic=mytest</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#a1.sinks.k1.kafka.bootstrap.servers=192.168.44.201:9092,192.168.44.202:9092,192.168.44.203:9092</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="na">a1.sources.r1.channels</span><span class="o">=</span><span class="s">c1</span>
+</span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.channel</span><span class="o">=</span><span class="s">c1</span>
+</span></span></code></pre></div><p><strong>启动命令：</strong></p>
+        
+        <hr><p>本文2023-03-15首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2023-03-15</p>]]>
+      </description>
+      
+    </item>
+    
+  </channel>
+</rss>
