@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>风林火山</title>
-    <link>https://kasises.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content from 风林火山</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
@@ -15,7 +15,7 @@
     <lastBuildDate>Thu, 17 Jul 2025 00:00:00 -0700</lastBuildDate>
     
     
-    <atom:link href="https://kasises.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
     
@@ -23,10 +23,10 @@
 
     <item>
       <title>实时采集的方法</title>
-      <link>https://kasises.github.io/post/%E6%B0%B4%E5%88%A9%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/</link>
+      <link>http://localhost:1313/post/%E6%B0%B4%E5%88%A9%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/</link>
       <pubDate>Thu, 17 Jul 2025 00:00:00 -0700</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/%E6%B0%B4%E5%88%A9%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/</guid>
+      <guid>http://localhost:1313/post/%E6%B0%B4%E5%88%A9%E4%B8%93%E4%B8%9A%E6%9C%AF%E8%AF%AD/</guid>
       <description>
         <![CDATA[<h1>实时采集的方法</h1><p>作者：圣子百炼（xxx@example.com）</p>
         
@@ -38,7 +38,7 @@
 <li>
 <p>库容：<strong>指水库在某一水位下可储存的水体总体积，通常分为多个层级</strong>：</p>
         
-        <hr><p>本文2025-07-17首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2025-07-17</p>]]>
+        <hr><p>本文2025-07-17首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于2025-07-17</p>]]>
       </description>
       
     </item>
@@ -47,10 +47,10 @@
 
     <item>
       <title>实时采集的方法</title>
-      <link>https://kasises.github.io/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/</link>
+      <link>http://localhost:1313/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/</link>
       <pubDate>Fri, 27 Jun 2025 00:00:00 -0700</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/</guid>
+      <guid>http://localhost:1313/post/%E5%AE%9E%E6%97%B6%E9%87%87%E9%9B%86%E6%96%B9%E6%B3%95/</guid>
       <description>
         <![CDATA[<h1>实时采集的方法</h1><p>作者：圣子百炼（xxx@example.com）</p>
         
@@ -101,7 +101,7 @@ flume的配置
 Maxwell的配置
 </h3><p>在Maxwell中配置到config.properties文件（可能需要自己创建）</p>
         
-        <hr><p>本文2025-06-27首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2025-06-27</p>]]>
+        <hr><p>本文2025-06-27首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于2025-06-27</p>]]>
       </description>
       
     </item>
@@ -110,10 +110,10 @@ Maxwell的配置
 
     <item>
       <title>Maxwell 和 MySQL 配置示例</title>
-      <link>https://kasises.github.io/post/1.-mysql-%E9%85%8D%E7%BD%AE/</link>
+      <link>http://localhost:1313/post/1.-mysql-%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Fri, 27 Jun 2025 00:00:00 -0700</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/1.-mysql-%E9%85%8D%E7%BD%AE/</guid>
+      <guid>http://localhost:1313/post/1.-mysql-%E9%85%8D%E7%BD%AE/</guid>
       <description>
         <![CDATA[<h1>Maxwell 和 MySQL 配置示例</h1><p>作者：圣子百炼（xxx@example.com）</p>
         
@@ -144,7 +144,7 @@ Maxwell的配置
 <strong>2. 创建 Maxwell 用户</strong>
 </h3><p>在 MySQL 中执行以下命令，为 Maxwell 创建一个用户并授予必要权限：</p>
         
-        <hr><p>本文2025-06-27首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2025-06-27</p>]]>
+        <hr><p>本文2025-06-27首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于2025-06-27</p>]]>
       </description>
       
     </item>
@@ -153,10 +153,10 @@ Maxwell的配置
 
     <item>
       <title>Vue前端 &#43; 后端 Flask 构建</title>
-      <link>https://kasises.github.io/post/vue_flask_guide/</link>
+      <link>http://localhost:1313/post/vue_flask_guide/</link>
       <pubDate>Wed, 15 May 2024 11:00:00 -0700</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/vue_flask_guide/</guid>
+      <guid>http://localhost:1313/post/vue_flask_guide/</guid>
       <description>
         <![CDATA[<h1>Vue前端 + 后端 Flask 构建</h1><p>作者：圣子百炼（xxx@example.com）</p>
         
@@ -187,7 +187,7 @@ Maxwell的配置
 </span></span><span class="line"><span class="cl">vue -V  <span class="c1"># 查看版本，必须为 4.5.X 以上</span>
 </span></span></code></pre></div><p><strong>如需升级 vue-cli：</strong></p>
         
-        <hr><p>本文2024-05-15首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2024-05-15</p>]]>
+        <hr><p>本文2024-05-15首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于2024-05-15</p>]]>
       </description>
       
     </item>
@@ -196,10 +196,10 @@ Maxwell的配置
 
     <item>
       <title>Flume &#43; Flink Kafka 实时处理任务配置与开发</title>
-      <link>https://kasises.github.io/post/flink_kafka_job_guide.md/</link>
+      <link>http://localhost:1313/post/flink_kafka_job_guide.md/</link>
       <pubDate>Wed, 15 May 2024 11:00:00 -0700</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/flink_kafka_job_guide.md/</guid>
+      <guid>http://localhost:1313/post/flink_kafka_job_guide.md/</guid>
       <description>
         <![CDATA[<h1>Flume + Flink Kafka 实时处理任务配置与开发</h1><p>作者：圣子百炼（xxx@example.com）</p>
         
@@ -370,7 +370,7 @@ Maxwell的配置
 </span></span></code></pre></div><hr>
 <p><strong>至此，完整数据采集、处理与存储流程完成。</strong></p>
         
-        <hr><p>本文2024-05-15首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2024-05-15</p>]]>
+        <hr><p>本文2024-05-15首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于2024-05-15</p>]]>
       </description>
       
     </item>
@@ -379,16 +379,16 @@ Maxwell的配置
 
     <item>
       <title>Hello World</title>
-      <link>https://kasises.github.io/post/hello/</link>
+      <link>http://localhost:1313/post/hello/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/hello/</guid>
+      <guid>http://localhost:1313/post/hello/</guid>
       <description>
         <![CDATA[<h1>Hello World</h1><p>作者：圣子百炼（xxx@example.com）</p>
         
           <p>💘 博麗 霊夢 💘</p>
         
-        <hr><p>本文2023-03-15首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2023-03-15</p>]]>
+        <hr><p>本文2023-03-15首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于2023-03-15</p>]]>
       </description>
       
     </item>
@@ -397,10 +397,10 @@ Maxwell的配置
 
     <item>
       <title>Flume &#43; Kafka &#43; Flink 实时数据处理</title>
-      <link>https://kasises.github.io/post/flume_kafka_flink_pipeline/</link>
+      <link>http://localhost:1313/post/flume_kafka_flink_pipeline/</link>
       <pubDate>Wed, 15 Mar 2023 11:00:00 -0700</pubDate>
       <author>xxx@example.com (圣子百炼)</author>
-      <guid>https://kasises.github.io/post/flume_kafka_flink_pipeline/</guid>
+      <guid>http://localhost:1313/post/flume_kafka_flink_pipeline/</guid>
       <description>
         <![CDATA[<h1>Flume + Kafka + Flink 实时数据处理</h1><p>作者：圣子百炼（xxx@example.com）</p>
         
@@ -430,7 +430,7 @@ Maxwell的配置
 </span></span><span class="line"><span class="cl"><span class="na">a1.sinks.k1.channel</span><span class="o">=</span><span class="s">c1</span>
 </span></span></code></pre></div><p><strong>启动命令：</strong></p>
         
-        <hr><p>本文2023-03-15首发于<a href='https://kasises.github.io/'>风林火山</a>，最后修改于2023-03-15</p>]]>
+        <hr><p>本文2023-03-15首发于<a href='http://localhost:1313/'>风林火山</a>，最后修改于2023-03-15</p>]]>
       </description>
       
     </item>
